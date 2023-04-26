@@ -13,7 +13,7 @@ contract Counter {
     
     }
     function subtract(uint a, uint b) public {
-        require(a>=b, "firs num should be greater");
+        require(a>=b, "first num should be greater");
         subtracted = a - b ;
     }
     function multiply(uint a, uint b) public {
