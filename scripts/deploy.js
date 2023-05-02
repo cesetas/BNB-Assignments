@@ -5,6 +5,7 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
+const fs = require("fs");
 
 async function main() {
   // const currentTimestampInSeconds = Math.round(Date.now() / 1000);
@@ -16,6 +17,12 @@ async function main() {
   const counter = await Counter.deploy();
 
   await counter.deployed();
+
+  fs.writeFile(
+    "contractAddress.json",
+    `{"contractAddress":"${counter.address}"}`,
+    () => {}
+  );
 
   console.log(`Counter contract deployed to ${counter.address}`);
 }
